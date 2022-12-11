@@ -36,12 +36,16 @@ enum TransactionActions: String, CaseIterable, Identifiable {
 
 extension ContentView {
     @MainActor final class ViewModel: ObservableObject {
+        typealias AlertAction = () -> ()
         private let transactionDataRepository: TransactionsDataRepositorable
+        var alertAction: AlertAction?
         @Published var consoleLog: String = ""
+        @Published var alertTitle: String = ""
         @Published private(set) var isTransactionActive: Bool = false
         @Published private(set) var actionSelected: Actions = .set
         @Published private(set) var showValueTextField: Bool = false
         @Published private(set) var executeButtonIsEnabled: Bool = false
+        @Published var isAlertShowed: Bool = false
         @Published var key: String = "" {
             didSet {
                 shouldEnableButton()
@@ -107,19 +111,40 @@ extension ContentView {
         }
         
         func execute(transactionAction: TransactionActions) {
-            if case .commit = transactionAction {
-                if let error = transactionDataRepository.commit() {
-                    handleError(error)
-                    return
+            switch transactionAction {
+            case .begin:
+                isTransactionActive = transactionAction == .begin
+                registerLog(action: transactionAction.name)
+            case .commit:
+                showAlert(title: "Are you sure to commit?") { [weak self] in
+                    if let error = self?.transactionDataRepository.commit() {
+                        self?.handleError(error)
+                        return
+                    }
+                    self?.isTransactionActive = transactionAction == .begin
+                    self?.registerLog(action: transactionAction.name)
+                }
+            case .rollback:
+                showAlert(title: "Are you sure to rollback?") { [weak self] in
+                    self?.transactionDataRepository.rollback()
+                    self?.isTransactionActive = transactionAction == .begin
+                    self?.registerLog(action: transactionAction.name)
                 }
             }
-            
-            if case .rollback = transactionAction {
-                transactionDataRepository.rollback()
+        }
+        
+        func hideAlert() {
+            isAlertShowed = false
+            alertAction = nil
+        }
+        
+        private func showAlert(title: String, action: @escaping AlertAction) {
+            alertTitle = title
+            isAlertShowed = true
+            alertAction = { [weak self] in
+                action()
+                self?.hideAlert()
             }
-            
-            isTransactionActive = transactionAction == .begin
-            registerLog(action: transactionAction.name)
         }
         
         private func shouldEnableButton() {

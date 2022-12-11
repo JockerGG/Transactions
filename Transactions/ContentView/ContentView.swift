@@ -99,9 +99,11 @@ struct ContentView: View {
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 ScrollView {
-                    Text(viewModel.consoleLog)
-                        .font(.callout)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    ScrollViewReader { _ in 
+                        Text(viewModel.consoleLog)
+                            .font(.callout)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
                 }
                 .padding()
                 .border(.black)
@@ -122,6 +124,16 @@ struct ContentView: View {
             .textFieldStyle(.roundedBorder)
             .navigationTitle("Mobile Transactional")
             .navigationBarTitleDisplayMode(.large)
+            .alert(viewModel.alertTitle, isPresented: $viewModel.isAlertShowed) {
+                if let action = viewModel.alertAction {
+                    Button("Ok") {
+                        action()
+                    }
+                }
+                Button("Cancel", role: .cancel) {
+                    viewModel.hideAlert()
+                }
+            }
         }
     }
 }
