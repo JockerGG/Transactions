@@ -77,25 +77,29 @@ extension ContentView {
         }
         
         func execute() {
-            let logRegister: String
             switch actionSelected {
             case .set:
                 guard !dataValue.isEmpty else { return }
                 transactionDataRepository.set(key: key, value: dataValue)
-                logRegister = TransactionLogBuilder.build(key: self.key, value: self.dataValue, action: self.actionSelected.name)
+                registerLog(key: key, value: dataValue, action: actionSelected.name)
             case .get:
                 if let transaction = transactionDataRepository.get(key: key) {
-                    logRegister = TransactionLogBuilder.build(key: key, storedValue: transaction.value, action: actionSelected.name)
+                    registerLog(key: key, storedValue: transaction.value, action: actionSelected.name)
                 } else {
-                    logRegister = TransactionLogBuilder.build(key: key, storedValue: "Key not set", action: actionSelected.name)
+                    registerLog(key: key, storedValue: "Key not set", action: actionSelected.name)
                 }
             case .delete:
-                transactionDataRepository.delete(key: key)
-                logRegister = TransactionLogBuilder.build(key: key, action: actionSelected.name)
+                showAlert(title: "Are you sure to delete?") { [weak self] in
+                    guard let self = self else { return }
+                    self.transactionDataRepository.delete(key: self.key)
+                    self.registerLog(key: self.key, action: self.actionSelected.name)
+                    self.key = ""
+                    self.dataValue = ""
+                }
             case .count:
                 guard !dataValue.isEmpty else { return }
                 let count = transactionDataRepository.count(value: dataValue)
-                logRegister = TransactionLogBuilder.build(key: key, storedValue: String(describing: count), action: actionSelected.name)
+                registerLog(key: key, storedValue: String(describing: count), action: actionSelected.name)
             }
             
             if actionSelected == .set || actionSelected == .delete {
@@ -105,9 +109,11 @@ extension ContentView {
                     }
                 }
             }
-            key = ""
-            dataValue = ""
-            consoleLog.append(logRegister)
+            
+            if actionSelected != .delete {
+                key = ""
+                dataValue = ""
+            }
         }
         
         func execute(transactionAction: TransactionActions) {
@@ -175,8 +181,6 @@ extension ContentView {
 }
 
 private extension String {
-    static let selectedAction: String = "Selected action: %@"
-    
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
