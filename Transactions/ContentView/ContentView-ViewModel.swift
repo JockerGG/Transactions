@@ -99,7 +99,7 @@ extension ContentView {
             case .count:
                 guard !dataValue.isEmpty else { return }
                 let count = transactionDataRepository.count(value: dataValue)
-                registerLog(key: key, storedValue: String(describing: count), action: actionSelected.name)
+                registerLog(value: dataValue, storedValue: String(describing: count), action: actionSelected.name)
             }
             
             if actionSelected == .set || actionSelected == .delete {

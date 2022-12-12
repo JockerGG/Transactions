@@ -30,7 +30,7 @@ struct ContentView: View {
                             .font(.headline)
                             .fontWeight(.semibold)
                             .padding(10)
-                            .background(viewModel.shouldEnableTransactionButton(action: action) ? Color.blue : Color.init(cgColor: UIColor.lightGray.cgColor))
+                            .background(viewModel.shouldEnableTransactionButton(action: action) ? Color.blue : Color(.lightGray))
                             .foregroundColor(.white)
                     }
                     .disabled(!viewModel.shouldEnableTransactionButton(action: action))
@@ -55,7 +55,7 @@ struct ContentView: View {
                             .font(.headline)
                             .fontWeight(.semibold)
                             .padding(10)
-                            .background(viewModel.actionSelected == action ? Color.blue : Color.init(cgColor: UIColor.lightGray.cgColor))
+                            .background(viewModel.actionSelected == action ? Color.blue : Color(.lightGray))
                             .foregroundColor(.white)
                     }
                     .cornerRadius(5)
@@ -79,12 +79,18 @@ struct ContentView: View {
                           text: $viewModel.dataValue)
                 .autocapitalization(.none)
             }
-            
             Spacer()
-            Button("Execute") {
+            Button(action: {
                 viewModel.execute()
+            }) {
+                Text("Execute")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .padding(10)
+                    .background(viewModel.executeButtonIsEnabled ? Color.blue : Color(.lightGray))
+                    .foregroundColor(.white)
             }
-            .buttonStyle(.borderedProminent)
+            .cornerRadius(5)
             .disabled(!viewModel.executeButtonIsEnabled)
             Spacer()
         }
@@ -122,15 +128,21 @@ struct ContentView: View {
             .textFieldStyle(.roundedBorder)
             .navigationTitle("Mobile Transactional")
             .navigationBarTitleDisplayMode(.large)
-            .alert(viewModel.alertTitle, isPresented: $viewModel.isAlertShowed) {
+            .alert(isPresented: $viewModel.isAlertShowed) {
                 if let action = viewModel.alertAction {
-                    Button("Ok") {
+                    return Alert(title: Text(viewModel.alertTitle),
+                                 primaryButton: .default(Text("OK"), action: {
                         action()
-                    }
+                    }),
+                                 secondaryButton: .cancel(Text("Cancel"),
+                                                          action: {
+                        viewModel.hideAlert()
+                    }))
                 }
-                Button("Cancel", role: .cancel) {
+                
+                return Alert(title: Text(viewModel.alertTitle), dismissButton: .cancel(Text("Cancel"), action: {
                     viewModel.hideAlert()
-                }
+                }))
             }
         }
     }
