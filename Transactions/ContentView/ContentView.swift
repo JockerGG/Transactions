@@ -37,7 +37,6 @@ struct ContentView: View {
                     .cornerRadius(5)
                 }
             }
-            .frame(width: .infinity)
             .padding()
         }
     }
@@ -63,7 +62,6 @@ struct ContentView: View {
                     Spacer()
                 }
             }
-            .frame(width: .infinity)
             .padding()
         }
     }

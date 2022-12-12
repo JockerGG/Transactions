@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1640046129469FD9001CB7FC /* ContentViewBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1640046029469FD9001CB7FC /* ContentViewBehaviorTests.swift */; };
+		164004652946A096001CB7FC /* TransactionsRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164004642946A096001CB7FC /* TransactionsRepositorySpy.swift */; };
 		16469A36294462C4004D52C3 /* TransactionsLogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16469A35294462C4004D52C3 /* TransactionsLogBuilder.swift */; };
 		16469A3929446D1A004D52C3 /* TransactionsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16469A3829446D1A004D52C3 /* TransactionsDataRepository.swift */; };
+		16471CE82946803A00259BD1 /* TransactionRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16471CE72946803A00259BD1 /* TransactionRepositoryTests.swift */; };
+		16471CEA2946806B00259BD1 /* TransactionsDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16471CE92946806B00259BD1 /* TransactionsDataStack.swift */; };
 		16DC093E2943C04200D30F88 /* TransactionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC093D2943C04200D30F88 /* TransactionsApp.swift */; };
 		16DC09402943C04200D30F88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC093F2943C04200D30F88 /* ContentView.swift */; };
 		16DC09422943C04B00D30F88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DC09412943C04B00D30F88 /* Assets.xcassets */; };
 		16DC09452943C04B00D30F88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DC09442943C04B00D30F88 /* Preview Assets.xcassets */; };
 		16DC09472943C04B00D30F88 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC09462943C04B00D30F88 /* Persistence.swift */; };
 		16DC094A2943C04B00D30F88 /* Transactions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16DC09482943C04B00D30F88 /* Transactions.xcdatamodeld */; };
-		16DC09542943C04C00D30F88 /* TransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC09532943C04C00D30F88 /* TransactionsTests.swift */; };
 		16DC095E2943C04C00D30F88 /* TransactionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC095D2943C04C00D30F88 /* TransactionsUITests.swift */; };
 		16DC09602943C04C00D30F88 /* TransactionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC095F2943C04C00D30F88 /* TransactionsUITestsLaunchTests.swift */; };
 		16DC096D2943D1B600D30F88 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC096C2943D1B600D30F88 /* ContentView-ViewModel.swift */; };
@@ -39,8 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1640046029469FD9001CB7FC /* ContentViewBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewBehaviorTests.swift; sourceTree = "<group>"; };
+		164004642946A096001CB7FC /* TransactionsRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepositorySpy.swift; sourceTree = "<group>"; };
 		16469A35294462C4004D52C3 /* TransactionsLogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsLogBuilder.swift; sourceTree = "<group>"; };
 		16469A3829446D1A004D52C3 /* TransactionsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDataRepository.swift; sourceTree = "<group>"; };
+		16471CE72946803A00259BD1 /* TransactionRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryTests.swift; sourceTree = "<group>"; };
+		16471CE92946806B00259BD1 /* TransactionsDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDataStack.swift; sourceTree = "<group>"; };
 		16DC093A2943C04200D30F88 /* Transactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DC093D2943C04200D30F88 /* TransactionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsApp.swift; sourceTree = "<group>"; };
 		16DC093F2943C04200D30F88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +56,6 @@
 		16DC09462943C04B00D30F88 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		16DC09492943C04B00D30F88 /* Transactions.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transactions.xcdatamodel; sourceTree = "<group>"; };
 		16DC094F2943C04C00D30F88 /* TransactionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		16DC09532943C04C00D30F88 /* TransactionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTests.swift; sourceTree = "<group>"; };
 		16DC09592943C04C00D30F88 /* TransactionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DC095D2943C04C00D30F88 /* TransactionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsUITests.swift; sourceTree = "<group>"; };
 		16DC095F2943C04C00D30F88 /* TransactionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -81,6 +87,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		164004622946A063001CB7FC /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				164004632946A06E001CB7FC /* Spies */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		164004632946A06E001CB7FC /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				164004642946A096001CB7FC /* TransactionsRepositorySpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
 		16469A3329446240004D52C3 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +110,6 @@
 				16469A342944627F004D52C3 /* Builder */,
 				16DC096C2943D1B600D30F88 /* ContentView-ViewModel.swift */,
 				16DC093F2943C04200D30F88 /* ContentView.swift */,
-				16469A35294462C4004D52C3 /* TransactionsLogBuilder.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -96,6 +117,7 @@
 		16469A342944627F004D52C3 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				16469A35294462C4004D52C3 /* TransactionsLogBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -104,6 +126,24 @@
 			isa = PBXGroup;
 			children = (
 				16469A3829446D1A004D52C3 /* TransactionsDataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		16471CE529467FF800259BD1 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				16471CE62946800F00259BD1 /* Repository */,
+				1640046029469FD9001CB7FC /* ContentViewBehaviorTests.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		16471CE62946800F00259BD1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				16471CE72946803A00259BD1 /* TransactionRepositoryTests.swift */,
+				16471CE92946806B00259BD1 /* TransactionsDataStack.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -152,7 +192,8 @@
 		16DC09522943C04C00D30F88 /* TransactionsTests */ = {
 			isa = PBXGroup;
 			children = (
-				16DC09532943C04C00D30F88 /* TransactionsTests.swift */,
+				164004622946A063001CB7FC /* TestDoubles */,
+				16471CE529467FF800259BD1 /* ContentView */,
 			);
 			path = TransactionsTests;
 			sourceTree = "<group>";
@@ -237,6 +278,7 @@
 					};
 					16DC094E2943C04C00D30F88 = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
 						TestTargetID = 16DC09392943C04100D30F88;
 					};
 					16DC09582943C04C00D30F88 = {
@@ -310,7 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16DC09542943C04C00D30F88 /* TransactionsTests.swift in Sources */,
+				1640046129469FD9001CB7FC /* ContentViewBehaviorTests.swift in Sources */,
+				16471CE82946803A00259BD1 /* TransactionRepositoryTests.swift in Sources */,
+				16471CEA2946806B00259BD1 /* TransactionsDataStack.swift in Sources */,
+				164004652946A096001CB7FC /* TransactionsRepositorySpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,14 +559,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eduardo.garcia.TransactionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transactions.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Transactions";
@@ -533,10 +585,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eduardo.garcia.TransactionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
